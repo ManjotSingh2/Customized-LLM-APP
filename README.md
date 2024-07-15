@@ -1,42 +1,61 @@
-# Customized-LLM-APP
+## North Indian Diet Expert Chatbot
+# Overview
+The Retrieval-Augmented Generation (RAG) LLM Chatbot is designed to provide accurate and contextually relevant responses by combining retrieval-based methods with generation-based models. This chatbot leverages external knowledge from a PDF document to enhance its responses, making it a powerful tool for domain-specific information retrieval and conversation. In this project, the chatbot specializes in providing dietary advice related to North Indian cuisine.
 
-Building a Retrieval-Augmented Generation (RAG) bot can significantly enhance the capabilities of a language model by incorporating external knowledge to generate more accurate and contextually relevant responses. This guide will walk you through creating a simple RAG bot using Gradio and the Hugging Face APIs.
+# Features
+1. Contextually Relevant Responses: Combines retrieval-based and generation-based approaches to provide accurate responses.
+2. Knowledge Integration: Uses external documents to supplement the chatbot's responses with up-to-date and domain-specific information.
+3. Interactive User Interface: Utilizes Gradio to provide a user-friendly interaction platform.
+4. North Indian Diet Expertise: Provides dietary advice, meal plans, healthy recipes, and nutritional information specific to North Indian cuisine.
 
-But how does RAG enhance LLM’s performance?
+# Setup Instructions
+Create a requirements.txt file with the following content:
 
-RAG improves the performance of language models by augmenting them with external documents. This method retrieves relevant documents based on the user query and combines them with the original prompt before passing them to the language model for response generation. This approach ensures that the language model can access up-to-date and domain-specific information without the need for extensive retraining.
+gradio
+huggingface_hub
+PyMuPDF
+sentence-transformers
+faiss-cpu
+
+Prepare the PDF
+
+Ensure you have a PDF file named North_Indian_Diet.pdf that contains information about the North Indian diet, recipes, nutrition, etc. Place this file in the same directory as your app.py.
+
+# Usage
 
 
+Example Interactions
 
-A common scenario of RAG helping LLM (Source)
+Healthy North Indian Breakfast
+User: Can you suggest a healthy North Indian breakfast?
 
-The basic steps in RAG can be simplified as follows:
+Nutritional Benefits of Chickpeas
+User: What are the nutritional benefits of chickpeas?
 
-Input: The question to which the LLM system responds is referred to as the input. If no RAG is used, the LLM is directly used to respond to the question.
+Balanced North Indian Meal Plan
+User: How can I plan a balanced North Indian meal?
 
-Indexing: If RAG is used, then a series of related documents are indexed by chunking them first, generating embeddings of the chunks, and indexing them into a vector store. At inference, the query is also embedded in a similar way.
+# Customization
+System Message
+Modify the system message in the respond function to change the chatbot's expertise area.
 
+system_message = "You are a North Indian diet expert. You provide dietary advice, suggest meal plans, and answer questions related to North Indian cuisine and nutrition. Feel free to ask about healthy recipes, nutritional benefits of foods, or meal planning tips."
 
-Basic retrieval steps in RAG. (Source)
+Response Parameters
+Adjust the max_tokens, temperature, and top_p parameters to fine-tune the chatbot's responses.
 
-Retrieval: The relevant documents are obtained by comparing the query against the indexed vectors, also denoted as “Relevant Documents”.
+gr.Slider(minimum=1, maximum=2048, value=512, step=1, label="Max new tokens"),
+gr.Slider(minimum=0.1, maximum=4.0, value=0.7, step=0.1, label="Temperature"),
+gr.Slider(minimum=0.1, maximum=1.0, value=0.95, step=0.05, label="Top-p (nucleus sampling)"),
 
-Generation: The relevant documents are combined with the original prompt as additional context. The combined text and prompt are then passed to the model for response generation which is then prepared as the final output of the system to the user.
+Adding More Examples
+Include more example questions in the examples section to guide users on how to interact with the chatbot.
 
-In the example provided, using the model directly fails to respond to the question due to a lack of knowledge of current events. On the other hand, when using RAG, the system can pull the relevant information needed for the model to answer the question appropriately. (Source)
+examples=[
+    ["Can you suggest a healthy North Indian breakfast?"],
+    ["What are the nutritional benefits of chickpeas?"],
+    ["How can I plan a balanced North Indian meal?"]
+]
 
-Now Let’s Build a Chatbot using RAG:
-
-I have used Zephyr LLM model and all-MiniLM-L6-v2 sentence transformer model. This sentence-transformers model maps sentences & paragraphs to a 384 dimensional dense vector space and can be used for tasks like clustering or semantic search.
-
-The all-* models were trained on all available training data (more than 1 billion training pairs) and are designed as general purpose models. The all-mpnet-base-v2 model provides the best quality, while all-MiniLM-L6-v2 is 5 times faster and still offers good quality. Toggle All models to see all evaluated original models.
-
-We need the following ingredients:
-
-1. A PDF as your knowledgebase
-
-2. A requirements.txt file
-
-3. An app.py file
-
-4. An account on Hugging Face (See this blog to learn about building a LLM chatbot in Hugging Face)
+# Contributing
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any suggestions or improvements.
