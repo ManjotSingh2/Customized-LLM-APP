@@ -1,4 +1,4 @@
-## North Indian Diet Expert Chatbot
+### North Indian Diet Expert Chatbot
 # Overview
 The Retrieval-Augmented Generation (RAG) LLM Chatbot is designed to provide accurate and contextually relevant responses by combining retrieval-based methods with generation-based models. This chatbot leverages external knowledge from a PDF document to enhance its responses, making it a powerful tool for domain-specific information retrieval and conversation. In this project, the chatbot specializes in providing dietary advice related to North Indian cuisine.
 
