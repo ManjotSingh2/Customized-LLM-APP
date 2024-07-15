@@ -1,14 +1,14 @@
-### North Indian Diet Expert Chatbot
-# Overview
+# North Indian Diet Expert Chatbot
+### Overview
 The Retrieval-Augmented Generation (RAG) LLM Chatbot is designed to provide accurate and contextually relevant responses by combining retrieval-based methods with generation-based models. This chatbot leverages external knowledge from a PDF document to enhance its responses, making it a powerful tool for domain-specific information retrieval and conversation. In this project, the chatbot specializes in providing dietary advice related to North Indian cuisine.
 
-# Features
+### Features
 1. Contextually Relevant Responses: Combines retrieval-based and generation-based approaches to provide accurate responses.
 2. Knowledge Integration: Uses external documents to supplement the chatbot's responses with up-to-date and domain-specific information.
 3. Interactive User Interface: Utilizes Gradio to provide a user-friendly interaction platform.
 4. North Indian Diet Expertise: Provides dietary advice, meal plans, healthy recipes, and nutritional information specific to North Indian cuisine.
 
-# Setup Instructions
+### Setup Instructions
 Create a requirements.txt file with the following content:
 
 gradio
@@ -17,11 +17,11 @@ PyMuPDF
 sentence-transformers
 faiss-cpu
 
-Prepare the PDF
+### Prepare the PDF
 
 Ensure you have a PDF file named North_Indian_Diet.pdf that contains information about the North Indian diet, recipes, nutrition, etc. Place this file in the same directory as your app.py.
 
-# Usage
+### Usage
 
 
 Example Interactions
@@ -35,7 +35,7 @@ User: What are the nutritional benefits of chickpeas?
 Balanced North Indian Meal Plan
 User: How can I plan a balanced North Indian meal?
 
-# Customization
+### Customization
 System Message
 Modify the system message in the respond function to change the chatbot's expertise area.
 
@@ -57,5 +57,5 @@ examples=[
     ["How can I plan a balanced North Indian meal?"]
 ]
 
-# Contributing
+### Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any suggestions or improvements.
